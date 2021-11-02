@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/merobhajan/static/css/main.a617e044.chunk.css",
-    "main.js": "/merobhajan/static/js/main.313f4e30.chunk.js",
-    "main.js.map": "/merobhajan/static/js/main.313f4e30.chunk.js.map",
-    "runtime-main.js": "/merobhajan/static/js/runtime-main.cd1857b0.js",
-    "runtime-main.js.map": "/merobhajan/static/js/runtime-main.cd1857b0.js.map",
-    "static/js/2.b297e74e.chunk.js": "/merobhajan/static/js/2.b297e74e.chunk.js",
-    "static/js/2.b297e74e.chunk.js.map": "/merobhajan/static/js/2.b297e74e.chunk.js.map",
-    "static/js/3.1630bdae.chunk.js": "/merobhajan/static/js/3.1630bdae.chunk.js",
-    "static/js/3.1630bdae.chunk.js.map": "/merobhajan/static/js/3.1630bdae.chunk.js.map",
+    "main.css": "/merobhajan/static/css/main.778d1f9e.chunk.css",
+    "main.js": "/merobhajan/static/js/main.9420ca08.chunk.js",
+    "main.js.map": "/merobhajan/static/js/main.9420ca08.chunk.js.map",
+    "runtime-main.js": "/merobhajan/static/js/runtime-main.eebbe744.js",
+    "runtime-main.js.map": "/merobhajan/static/js/runtime-main.eebbe744.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/merobhajan/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.3da02d97.chunk.js": "/merobhajan/static/js/2.3da02d97.chunk.js",
+    "static/js/2.3da02d97.chunk.js.map": "/merobhajan/static/js/2.3da02d97.chunk.js.map",
     "index.html": "/merobhajan/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/merobhajan/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.b297e74e.chunk.js.LICENSE.txt": "/merobhajan/static/js/2.b297e74e.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/merobhajan/static/media/logo.6ce24c58.svg"
+    "static/css/2.0a9ec390.chunk.css.map": "/merobhajan/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.778d1f9e.chunk.css.map": "/merobhajan/static/css/main.778d1f9e.chunk.css.map",
+    "static/js/2.3da02d97.chunk.js.LICENSE.txt": "/merobhajan/static/js/2.3da02d97.chunk.js.LICENSE.txt",
+    "static/media/logo.24ec2ec1.png": "/merobhajan/static/media/logo.24ec2ec1.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.cd1857b0.js",
-    "static/js/2.b297e74e.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.313f4e30.chunk.js"
+    "static/js/runtime-main.eebbe744.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.3da02d97.chunk.js",
+    "static/css/main.778d1f9e.chunk.css",
+    "static/js/main.9420ca08.chunk.js"
   ]
 }
