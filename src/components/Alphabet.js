@@ -1,60 +1,35 @@
-import React from 'react'
+import React from 'react';
+import { Card } from 'react-bootstrap';
 
 const Alphabet = () => {
-    return(
-        <div className="alphabet-section">
-            <a href=""> अ </a>
-            <a href=""> आ </a>
-            <a href=""> इ </a>
-            <a href=""> ई </a>
-            <a href=""> उ </a>
-            <a href=""> ऊ </a>
-            <a href=""> ए </a>
-            <a href=""> ऐ </a>
-            <a href=""> ओ </a>
-            <a href=""> औ </a>
-            <a href=""> अं </a>
-            <a href=""> अः </a>
-            <a href=""> ऋ </a>
-            <a href=""> ॠ  |</a>
-            <a href="">  क </a>
-            <a href=""> ख </a>
-            <a href=""> ग </a>
-            <a href=""> घ </a>
-            <a href=""> ङ </a>
-            <a href=""> च </a>
-            <a href=""> छ </a>
-            <a href=""> ज </a>
-            <a href=""> झ </a>
-            <a href=""> ञ </a>
-            <a href=""> ट </a>
-            <a href=""> ठ </a>
-            <a href=""> ड </a>
-            <a href=""> ढ </a>
-            <a href=""> ण </a>
-            <a href=""> त </a>
-            <a href=""> थ </a>
-            <a href=""> द </a>
-            <a href=""> ध </a>
-            <a href=""> न </a>
-            <a href=""> प </a>
-            <a href=""> फ </a>
-            <a href=""> ब </a>
-            <a href=""> भ </a>
-            <a href=""> म </a>
-            <a href=""> य </a>
-            <a href=""> र </a>
-            <a href=""> ल </a>
-            <a href=""> व </a>
-            <a href=""> श </a>
-            <a href=""> ष </a>
-            <a href=""> स </a>
-            <a href=""> ह </a>
-            <a href=""> क्ष </a>
-            <a href=""> त्र </a>
-            <a href=""> ज्ञ </a>
-        </div>
-    )
+    const cardInfo = [
+        { title: "अ" },  { title: "आ" }, { title: "इ" },  { title: "ई" },
+        { title: "उ" },  { title: "ऊ" },  { title: "ए" },  { title: "ऐ" },
+        { title: "ओ" },  { title: "औ" }, { title: "अं" },  { title: "अः" },
+        { title: "ऋ" },  { title: "ॠ" }, { title: "|" },  { title: "क" },
+        { title: "ख" },  { title: "ग" }, { title: "घ" },  { title: "ङ" },
+        { title: "च" },  { title: "छ" }, { title: "ज" },  { title: "झ" },
+        { title: "ञ" },  { title: "ट" }, { title: "ठ" },  { title: "ड" },
+        { title: "ढ" },  { title: "ण" }, { title: "त" },  { title: "थ" },
+        { title: "द" },  { title: "ध" }, { title: "न" },  { title: "प" },
+        { title: "फ" },  { title: "ब" }, { title: "भ" },  { title: "म" },
+        { title: "य" },  { title: "र" }, { title: "ल" },  { title: "व" },
+        { title: "श" },  { title: "ष" }, { title: "स" },  { title: "ह" },
+        { title: "क्ष" },  { title: "त्र" }, { title: "ज्ञ" }
+      ];
+    
+      const renderCard = (card, index) => {
+        return (
+          <Card style={{ width: "2rem" }} key={index} className="box">
+            <Card.Body>
+              <a href="" ><Card.Title>{card.title}</Card.Title></a>
+            </Card.Body>
+          </Card>
+        );
+      };
+    
+      return <div className="grid">{cardInfo.map(renderCard)}</div>;
+    
 }
 
 export default Alphabet;

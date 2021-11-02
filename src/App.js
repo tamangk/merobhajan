@@ -5,7 +5,7 @@ import Alphabet from './components/Alphabet';
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Alphabet />
     </div>
   );

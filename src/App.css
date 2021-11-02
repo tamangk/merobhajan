@@ -2,10 +2,26 @@
   text-align: center;
 }
 
-.alphabet-section {
-  padding-top: 100px;
-}
+/* .cards{
+  padding-top: 60px;
+} */
 a:link {
   text-decoration: none;
   color: black;
 }
+
+.box {
+  margin: 5px;
+}
+
+.grid {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.grid > div {
+  flex-basis: calc(20% - 50px);
+}
+
