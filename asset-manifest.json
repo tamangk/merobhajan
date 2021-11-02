@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/merobhajan/static/css/main.a617e044.chunk.css",
+    "main.js": "/merobhajan/static/js/main.313f4e30.chunk.js",
+    "main.js.map": "/merobhajan/static/js/main.313f4e30.chunk.js.map",
+    "runtime-main.js": "/merobhajan/static/js/runtime-main.cd1857b0.js",
+    "runtime-main.js.map": "/merobhajan/static/js/runtime-main.cd1857b0.js.map",
+    "static/js/2.b297e74e.chunk.js": "/merobhajan/static/js/2.b297e74e.chunk.js",
+    "static/js/2.b297e74e.chunk.js.map": "/merobhajan/static/js/2.b297e74e.chunk.js.map",
+    "static/js/3.1630bdae.chunk.js": "/merobhajan/static/js/3.1630bdae.chunk.js",
+    "static/js/3.1630bdae.chunk.js.map": "/merobhajan/static/js/3.1630bdae.chunk.js.map",
+    "index.html": "/merobhajan/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/merobhajan/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.b297e74e.chunk.js.LICENSE.txt": "/merobhajan/static/js/2.b297e74e.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/merobhajan/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd1857b0.js",
+    "static/js/2.b297e74e.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.313f4e30.chunk.js"
+  ]
+}
