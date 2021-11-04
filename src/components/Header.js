@@ -5,7 +5,7 @@ import Logo from '../images/logo.png';
 const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top">
-            <Container>
+            <Container className="header">
                 <Navbar.Brand href="#home"><img
                     alt=""
                     src={Logo}
@@ -13,7 +13,7 @@ const Header = () => {
                     height="30"
                     className="d-inline-block align-top"
                     />{' '}
-                    Mero Bhajan
+                    <span style={{fontSize: "30px"}}>Mero Bhajan</span>
                 </Navbar.Brand>
                 <div>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

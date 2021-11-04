@@ -2,9 +2,15 @@
   text-align: center;
 }
 
-/* .cards{
-  padding-top: 60px;
-} */
+.header {
+  height: 4rem;
+}
+
+.me-auto {
+  font-size: 25px;
+  color: black;
+}
+
 a:link {
   text-decoration: none;
   color: black;
@@ -12,9 +18,14 @@ a:link {
 
 .box {
   margin: 5px;
+  border: 3px solid red;
 }
 
 .grid {
+  padding-top: 5rem;
+  margin: auto;
+  width: 90%;
+  /* border: 3px solid green; */
   min-height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -22,6 +33,7 @@ a:link {
 }
 
 .grid > div {
-  flex-basis: calc(20% - 50px);
+  flex-basis: calc(15% - 10px);
+  /* flex-basis: auto; */
 }
 
