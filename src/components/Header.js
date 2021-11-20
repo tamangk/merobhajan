@@ -9,8 +9,8 @@ const Header = () => {
                 <Navbar.Brand href="#home"><img
                     alt=""
                     src={Logo}
-                    width="30"
-                    height="30"
+                    width="40"
+                    height="40"
                     className="d-inline-block align-top"
                     />{' '}
                     <span style={{fontSize: "30px"}}>Mero Bhajan</span>
