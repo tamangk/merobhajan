@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 // import { Geet } from '../songs/Geet';
-import Geet from '../songs/Geet';
+// import Geet from '../songs/Geet';
 
 class App extends Component {
     state = { searchInput: '', alphabet: '' };
@@ -33,11 +33,7 @@ class App extends Component {
       let result = [];
       for(let i=0; i<50; i++) {
         result.push(
-            <Card className="box">
-                <Card.Body >
-                    <button type="button" style={{outline: 'none'}} key={i} onClick={this.onAlphabetClick} value={this.cardInfo[i].title} >{this.cardInfo[i].title}</button>
-                </Card.Body>
-          </Card>
+            <button type="button" key={i} onClick={this.onAlphabetClick} value={this.cardInfo[i].title} >{this.cardInfo[i].title}</button>
         )
       }
       return <div className="grid">{result}</div>;;
@@ -51,13 +47,21 @@ class App extends Component {
         } else {
             result = itemList || [];
         }
-        result = result.map((item) => (<ul>{item.title}</ul>))
+        result = result.map((item) => (
+            <ul onClick={console.log()}>{item.title}</ul>
+            
+            )
+        )
         return result;
     }
 
-    render() {
+    displayContent = (item, id) => {
+        let result = [];
+        result = result.map((item) => (<ul>{item[id].paragraph}</ul>))
+        return console.log("checking", result);
+    }
 
-        // const itemList = Geet.map(user => <h1 key={user.letter}> {user.title} </h1>)
+    render() {
         const itemList = [
             { 
                 letter: "अ", 
@@ -78,31 +82,31 @@ class App extends Component {
                 letter: "इ", 
                 title: "इस मण्डली में भाइयों हम सब एक है हम एक हैं", 
                 paragraph: "को. इस मण्डली में भाइयों, हम सब एक है हम एक हैं (२)\n १.  न कोई ऊँचा न कोई जीचा न गोरा न काला (२)\n हम सब... ।\n२.  उसकी नजर में दोनों बराबर महल हो छप्पड़ वाला (२)\n हम सब... ।\n ३.  उसके पास जो आना चाहे पीले प्रेम का प्याला (२)\n हम सब... ।\n ४.  न कोई मलयालि न कोई बंगाली, न रे पक्का नेपाली (२)\n हम सब... ।\n"
-            },
-            { 
-                letter: "आ", 
-                title: "आ मसीहा मन में", 
-                paragraph: "को. आ मसीहा मन में, (२) प्यार तेरा मिले, दिन मेरा खिल \nइस दुःखी जीवन में... आ मसीहा... ।\n१.  इस संसार के बातों मैं, चैन नहीं पाया मैने\nपाया है दु:ख दर्द यहाँ, और खोई शान्ति मैने (२)\nआज पता चला, तु अगर मिला, प्यार के जीवन में ।\n२.  आज नहीं तो कल जरूर, जग ये छोड़ के जाना है\nफिर क्यों इस दुनियाँ में मै, अपने दिल को लगा लुँगा (२)\nदिलके द्वार पर, क्यों खड़ा है आजा मन में ।" 
             }
         ]  
 
         // const itemLists = Geet.itemList
         const filteredList = this.filterItems(itemList);
-        return (
-            <div>
-            {this.prepareAlphabets()}
-            <ul>
-            {/* <div>
-                {
-                    Users.map(user => <h1 key={user.letter}> {user.title} </h1>)
-                }
-            </div> */}
+        const { alphabet } = this.state;
 
-                {filteredList}
-            </ul>
+        return (
+            <div className="display">
+                {this.prepareAlphabets()}
+                <div className="song-list">
+                    <h2 style={{textAlign: 'center'}}>{alphabet}</h2>
+                    {/* <a href="" onClick={() => this.displayContent(filteredList, filteredList.itemList)}>{filteredList}</a> */}
+                    {/* <ul>console.log({this.filteredList.item})</ul> */}
+                    {filteredList}
+                </div>
             </div>
         );
     }
 }
 
-  export default App;
+  export default App;          
+  
+/* <div>
+    {
+        Users.map(user => <h1 key={user.letter}> {user.title} </h1>)
+    }
+</div> */
