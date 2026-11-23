@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mero Bhajan</title>
+<meta name="description" content="Mero Bhajan — Nepali Christian songbook with lyrics and chords. Public read only version.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f5f9; --card:#ffffff; --text:#1e293b; --muted:#64748b;
+  --accent:#0f766e; --accent-dark:#115e59; --accent-soft:#ccfbf1;
+  --border:#e2e8f0; --amber:#d97706; --danger:#b91c1c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 48px}
+header.site{background:var(--card);border-bottom:1px solid var(--border)}
+header.site .wrap{padding-top:20px;padding-bottom:16px}
+h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}
+.subtitle{margin:2px 0 0;color:var(--muted);font-size:15px}
+.notice{margin:14px 0 0;background:var(--accent-soft);border:1px solid #99f6e4;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#134e4a}
+.notice b{font-weight:700}
+.search{width:100%;margin:18px 0 12px;padding:12px 14px;font-size:16px;border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--text);outline:none}
+.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+.chip{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.alpha-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:6px 0 8px}
+.alpha{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.alpha button{min-width:38px;height:38px;border:1px solid var(--border);background:#fff;border-radius:9px;font-size:16px;cursor:pointer;color:var(--text);font-family:inherit}
+.alpha button.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.alpha button:disabled{opacity:.32;cursor:default}
+.alpha button.clear{font-size:13px;min-width:auto;padding:0 12px;color:var(--accent);font-weight:600}
+.group-h{font-size:20px;font-weight:800;margin:22px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+.song{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.song:hover{border-color:var(--accent)}
+.song .t{font-weight:700;font-size:17px}
+.song .n{color:var(--muted);font-size:14.5px;margin-top:2px}
+.song .m{color:var(--muted);font-size:13px;margin-top:6px}
+.song .m span{margin-right:10px}
+.star{font-size:22px;color:#cbd5e1;background:none;border:none;cursor:pointer;padding:0;line-height:1}
+.star.on{color:var(--amber)}
+.empty{background:var(--card);border:1px dashed var(--border);border-radius:14px;padding:28px;text-align:center;color:var(--muted)}
+.back{background:none;border:none;color:var(--accent);font-weight:700;font-size:15px;cursor:pointer;padding:12px 0 0;font-family:inherit}
+.detail{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-top:12px}
+.detail h2{margin:0;font-size:24px;font-weight:800}
+.detail .nep{color:var(--muted);font-size:17px;margin-top:4px}
+.detail .meta{color:var(--muted);font-size:13.5px;margin-top:8px}
+.detail .meta span{margin-right:12px}
+.controls{position:sticky;top:0;background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px;margin:16px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;z-index:5}
+.controls .lbl{font-size:13px;font-weight:700;color:var(--muted);margin-right:2px}
+.btn{border:1px solid var(--border);background:#fff;border-radius:9px;padding:7px 12px;font-size:14px;cursor:pointer;font-family:inherit;color:var(--text)}
+.btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.accent{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.seg{display:inline-block;vertical-align:top}
+.seg .ch{display:block;color:var(--accent);font-weight:700;white-space:pre;min-height:1.25em;font-size:.92em}
+.seg .tx{display:block;white-space:pre}
+.lyric-line{margin:0 0 2px}
+.nep-line{margin:0 0 12px;color:#475569}
+.section{margin:18px 0 4px}
+.section h3{margin:0 0 10px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--amber)}
+.starter-tag{display:inline-block;background:#fef3c7;color:#92400e;border-radius:999px;font-size:12px;font-weight:700;padding:2px 9px;margin-left:8px;vertical-align:middle}
+footer.site{color:var(--muted);font-size:13px;text-align:center;padding:8px 16px 32px}
+footer.site p{margin:4px 0}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <h1>Mero Bhajan</h1>
+    <p class="subtitle">मेरो भजन &middot; नेपाली ख्रीष्टियन गीत सङ्ग्रह &middot; Lyrics &amp; Chords</p>
+    <div class="notice"><b>Public read only version.</b> Browse, search and sing along here. Song suggestions and admin live in the Muse app, not on this page.</div>
+  </div>
+</header>
+<main class="wrap">
+  <div id="homeView">
+    <input id="search" class="search" type="search" placeholder="Search songs, lyrics, writers..." autocomplete="off">
+    <div class="chips" id="cats"></div>
+    <div class="alpha-label">Nepali alphabet &middot; नेपाली वर्णमाला</div>
+    <div class="alpha" id="alpha"></div>
+    <div id="list"></div>
+  </div>
+  <div id="detailView" class="hidden">
+    <button class="back" id="backBtn">&larr; All songs</button>
+    <div class="detail">
+      <div id="detailHead"></div>
+      <div class="controls" id="controls"></div>
+      <div id="detailBody"></div>
+    </div>
+  </div>
+</main>
+<footer class="site">
+  <p>Mero Bhajan &middot; मेरो भजन &middot; Nepali Christian songbook</p>
+  <p>Public read only version for GitHub Pages. Favorites are saved only in this browser.</p>
+</footer>
+<script>
+const SONGS = [
+{"id":1,"titleRoman":"Ban Pakha Gunjai Deu Hai","titleNepali":"बन पाखा गुञ्जाइ देउ है","songNumber":"Bhajan 291","category":"Bhajan","writer":"Traditional Nepali Bhajan","originalKey":"Am","scripture":"","sections":[
+{"label":"Chorus","lines":[
+{"chordPro":"[Am]Ban pakha [G]gunjai deu hai [Am]muktiko euta geetle","nepali":"बन पाखा गुञ्जाइ देउ है मुक्तिको एउटा गीतले"},
+{"chordPro":"[Am]Satyako [D]sandesh bhanideu [Em]geetko bhaka[Am]le","nepali":"सत्यको सन्देश भनिदेउ गीतको भाकाले"}]},
+{"label":"Verse 1","lines":[
+{"chordPro":"[Am]Papko shrap metnalai Yeshu ji aunu [G]bho","nepali":"पापको श्राप मेट्नलाई येशू जी आउनु भो"},
+{"chordPro":"[Dm]Manche laai naya [G]rup dina [Am]ragat [G]bahaunu [Am]bhayo","nepali":"मान्छेलाई नयाँ रूप दिन रगत बहाउनु भयो"},
+{"chordPro":"[Am]Swargako dhoka kholechha [C]unai kripa[G]le","nepali":"स्वर्गको ढोका खोलेछ उनै कृपाले"},
+{"chordPro":"[Am]Maya garera papi[G]harulai unaile [Am]bachaye","nepali":"माया गरेर पापीहरूलाई उनैले बचाए"},
+{"chordPro":"[C]Bataideu sabai [G]laai, [C]bujhaideu sabai [G]laai, samjhaideu sabai [Am]laai","nepali":"बताइदेउ सबैलाई, बुझाइदेउ सबैलाई, सम्झाइदेउ सबैलाई"}]},
+{"label":"Verse 2","lines":[
+{"chordPro":"[Am]Harako jiban chhaina yaha adheri jagat [G]ma","nepali":"हराएको जीवन छैन यहाँ अँधेरी जगतमा"},
+{"chordPro":"[Dm]Bemol chhaina [G]manchhe sab [Am]dhartiko [G]aagan [Am]ma","nepali":"बेमोल छैन मान्छे सब धर्तीको आँगनमा"},
+{"chordPro":"[Am]Khojne harulai jiban chha [C]kalwari pakha [G]ma","nepali":"खोज्नेहरूलाई जीवन छ कलवरी पाखामा"},
+{"chordPro":"[Am]Ke nai po thiyo manchhe ko mol [G]aphnai [Am]aakhama","nepali":"के नै पो थियो मान्छेको मोल आफ्नै आँखामा"}]}]},
+{"id":2,"titleRoman":"Suna Suna E Sathi Suna","titleNepali":"सुन सुन ए साथी सुन","songNumber":null,"category":"Chorus","writer":"Santa Tamang · Exodus Ministry","originalKey":"C","scripture":"","sections":[
+{"label":"Chorus","lines":[
+{"chordPro":"[C]Suna suna e sathi suna, [G]bhana bhana e sathi bhana","nepali":"सुन सुन ए साथी सुन, भन भन ए साथी भन"},
+{"chordPro":"[C]Yeshu Prabhu janma linu bho, [G]hamro pap uthai [C]linu bho","nepali":"येशू प्रभु जन्म लिनु भो, हाम्रो पाप उठाइ लिनु भो"},
+{"chordPro":"[C]Prabhuko bachan sunna, [F]hridayama sajai [C]rakhana","nepali":"प्रभुको वचन सुन्न हृदयमा सजाई राखन"},
+{"chordPro":"[C]Timile mukti [G]paune chhau, [F]sathma jiban [C]paune chhau","nepali":"तिमीले मुक्ति पाउने छौ, साथमा जीवन पाउनेछौ"}]},
+{"label":"Verse 1","lines":[
+{"chordPro":"[C]Prabhuma bishwas garana, [G]samayama chini [C]rakhana","nepali":"प्रभुमा विश्वास गरन, समयमा चिनि राखन"},
+{"chordPro":"[C]Timro tyo chhoto jiban, [G]Yeshulai sumpideu[C]na","nepali":"तिम्रो त्यो छोटो जीवन येशूलाई सुम्पिदेउन"}]}]},
+{"id":3,"titleRoman":"Yeshu Bolauchhan Sablai","titleNepali":"येशू बोलाउछन् सबलाई","songNumber":"Bhajan 469","category":"Bhajan","writer":"Traditional Nepali Bhajan","originalKey":"E","scripture":"Matthew 11:28","sections":[
+{"label":"Chorus","lines":[
+{"chordPro":"[E]Yeshu bolauchhan sab[A]lai, [B]aau mero najik [E]aau","nepali":"येशू बोलाउछन् सबलाई, आउ मेरो नजिक आउ"},
+{"chordPro":"[E]Thakeka ra bojhle dabie[A]ka, [B]ma timilai bishram [E]dinchhu","nepali":"थाकेका र बोझले दबिएका, म तिमीलाई विश्राम दिन्छु"}]},
+{"label":"Verse 1","lines":[
+{"chordPro":"[E]Mero juwa sajilo chha, [A]mero bojh haluka [E]chha","nepali":"मेरो जुवा सजिलो छ, मेरो बोझ हलुका छ"},
+{"chordPro":"[E]Masanga sikne haru[A]le, [B]atma ma bishram [E]paune chhan","nepali":"मसँग सिक्नेहरूले आत्मामा विश्राम पाउने छन्"}]}]},
+{"id":4,"titleRoman":"Yeshu Malai Maya Garnu Huncha","titleNepali":"येशू मलाई माया गर्नु हुन्छ","songNumber":null,"category":"Kids","writer":"Anna B. Warner (1860) · Nepali translation, traditional","originalKey":"C","scripture":"","sections":[
+{"label":"Chorus","lines":[
+{"chordPro":"[C]Yeshu malai maya garnu [F]huncha, [C]Bible le yahi [G]bhancha","nepali":"येशू मलाई माया गर्नु हुन्छ, बाइबलले यही भन्छ"},
+{"chordPro":"[C]Sana balak uhaka [F]hun, [C]uha baliyo, [G]ma kamjor [C]chhu","nepali":"साना बालक उहाँका हुन्, उहाँ बलियो, म कमजोर छु"},
+{"chordPro":"[C]Ho, Yeshu maya [F]garnu huncha, [C]ho, Yeshu maya [G]garnu huncha","nepali":"हो, येशू माया गर्नु हुन्छ, हो, येशू माया गर्नु हुन्छ"},
+{"chordPro":"[C]Ho, Yeshu maya [F]garnu huncha, [G]Bible le yahi [C]bhancha","nepali":"हो, येशू माया गर्नु हुन्छ, बाइबलले यही भन्छ"}]}]},
+{"id":5,"titleRoman":"Ashcharya Anugraha","titleNepali":"आश्चर्य अनुग्रह","songNumber":null,"category":"Bhajan","writer":"John Newton (1779) · Nepali translation, traditional","originalKey":"G","scripture":"","sections":[
+{"label":"Verse 1","lines":[
+{"chordPro":"[G]Ashcharya anugraha, [C]kati mitho [G]dhun","nepali":"आश्चर्य अनुग्रह, कति मिठो धुन"},
+{"chordPro":"[G]Mero jastai papi[Em]lai [D]bachayo uhale","nepali":"मेरो जस्तै पापीलाई बचायो उहाँले"},
+{"chordPro":"[G]Ma harayeko [C]thiye, [G]ahile pai[Em]ye","nepali":"म हराएको थिएँ, अहिले पाइएँ"},
+{"chordPro":"[G]Andho thiye, [D]ahile dekhna [G]sakchhu","nepali":"अन्धो थिएँ, अहिले देख्न सक्छु"}]},
+{"label":"Verse 2","lines":[
+{"chordPro":"[G]Anugrahale nai [C]hridaya ma [G]dar sikayo","nepali":"अनुग्रहले नै हृदयमा डर सिकायो"},
+{"chordPro":"[G]Anugrahale nai [Em]mero dar [D]hatayo","nepali":"अनुग्रहले नै मेरो डर हटायो"}]}]},
+{"id":6,"titleRoman":"Dhanyabad Chadhauchhu","titleNepali":"धन्यवाद चढाउँछु","songNumber":null,"category":"Worship","writer":"Traditional Nepali worship chorus","originalKey":"G","scripture":"Psalm 100","sections":[
+{"label":"Chorus","lines":[
+{"chordPro":"[G]Dhanyabad chadhauchhu, [C]Yeshu tapai[G]lai","nepali":"धन्यवाद चढाउँछु, येशू तपाईलाई"},
+{"chordPro":"[G]Mero jibanko [Em]harek pal, [D]tapaimai arpan [G]chha","nepali":"मेरो जीवनको हरेक पल तपाईमै अर्पण छ"},
+{"chordPro":"[G]Hallelujah, [C]hallelujah, [G]mahima tapai[D]lai","nepali":"हल्लेलूयाह, हल्लेलूयाह, महिमा तपाईलाई"},
+{"chordPro":"[G]Dhanyabad chadhauchhu, [C]Yeshu tapai[G]lai","nepali":"धन्यवाद चढाउँछु, येशू तपाईलाई"}]}]},
+{"id":7,"titleRoman":"Tapai Jastai Kohi Chhaina","titleNepali":"तपाईं जस्तो कोही छैन","songNumber":null,"category":"Worship","writer":"Adrian Dewan — chorus excerpt, starter","originalKey":"Bb","scripture":"","sections":[
+{"label":"Chorus (excerpt)","lines":[
+{"chordPro":"[Bb]Tapai jastai kohi [Gm]chhaina, [Bb]tapai jastai kohi [Gm]chhaina","nepali":"तपाईं जस्तो कोही छैन, तपाईं जस्तो कोही छैन"},
+{"chordPro":"[Eb]Pabitra, pabitra [F]Parmeshwar","nepali":"पवित्र, पवित्र परमेश्वर"},
+{"chordPro":"[Bb]Aafaima sarba sampanna, [Gm]ananda ra premle purna","nepali":"आफैमा सर्वसम्पन्न, आनन्द र प्रेमले पूर्ण"},
+{"chordPro":"[Eb]Kasaima hunuhunna [F]nirbhar","nepali":"कसैमा हुनुहुन्न निर्भर"}]}]},
+{"id":8,"titleRoman":"Uchcha Sorma Prasansa Gaunchhu","titleNepali":"उच्च स्वरमा प्रशंसा गाउँछु","songNumber":null,"category":"Praise","writer":"Traditional Nepali praise chorus","originalKey":"D","scripture":"Psalm 150","sections":[
+{"label":"Chorus","lines":[
+{"chordPro":"[D]Uchcha sorma prasansa [G]gaunchhu, [A]Yeshu mero [D]Prabhu lai","nepali":"उच्च स्वरमा प्रशंसा गाउँछु, येशू मेरो प्रभुलाई"},
+{"chordPro":"[D]Haat uthai aradhana [G]garchhu, [A]jiban bhar tapai[D]lai","nepali":"हात उठाई आराधना गर्छु, जीवनभर तपाईलाई"},
+{"chordPro":"[D]Hallelujah, [G]hallelujah, [D]hallelujah, [A]amen","nepali":"हल्लेलूयाह, हल्लेलूयाह, हल्लेलूयाह, आमेन"}]}]},
+{"id":9,"titleRoman":"Bachan Ma Jara","titleNepali":"वचनमा जरा","songNumber":null,"category":"Worship","writer":"Adrian Dewan — chorus excerpt, starter","originalKey":"F","scripture":"","sections":[
+{"label":"Chorus (excerpt)","lines":[
+{"chordPro":"[F]Hami bachan ma tala jara [Bb]gadera, [F]atma ma mathi udne [C]pusta haun","nepali":"हामी वचनमा तल जरा गाडेर, आत्मामा माथि उड्ने पुस्ता हौँ"},
+{"chordPro":"[F]Hami atma ma udne [Bb]pusta haun, [F]hami bachan ma dubne [C]pusta [F]haun","nepali":"हामी आत्मामा उड्ने पुस्ता हौँ, हामी वचनमा डुब्ने पुस्ता हौँ"}]}]},
+{"id":10,"titleRoman":"Purba Bata Gyani Haru Aaye","titleNepali":"पूर्वबाट ज्ञानीहरू आए","songNumber":"Bhajan 480 (Christmas)","category":"Christmas","writer":"Traditional Nepali Christmas Bhajan","originalKey":"G","scripture":"Matthew 2","sections":[
+{"label":"Verse 1","lines":[
+{"chordPro":"[G]Purba bata gyani haru [C]aaye, [D]tara pachhyaudai [G]aaye","nepali":"पूर्वबाट ज्ञानीहरू आए, तारा पछ्याउँदै आए"},
+{"chordPro":"[G]Bethlehem ko gotha[C]ma, [D]balak Yeshu lai [G]bhete","nepali":"बेथलेहेमको गोठमा, बालक येशूलाई भेटे"}]},
+{"label":"Chorus","lines":[
+{"chordPro":"[G]Khushiko khabar, [C]khushiko khabar, [D]mukti data janminu [G]bho","nepali":"खुशीको खबर, खुशीको खबर, मुक्तिदाता जन्मिनु भो"},
+{"chordPro":"[G]Sara sansar lai [C]khushiko khabar, [D]Yeshu janminu [G]bho","nepali":"सारा संसारलाई खुशीको खबर, येशू जन्मिनु भो"}]}]}
+];
+const VARNAMALA = ["अ","आ","इ","ई","उ","ऊ","ऋ","ए","ऐ","ओ","औ","अं","अः","क","ख","ग","घ","ङ","च","छ","ज","झ","ञ","ट","ठ","ड","ढ","ण","त","थ","द","ध","न","प","फ","ब","भ","म","य","र","ल","व","श","ष","स","ह","क्ष","त्र","ज्ञ"];
+const CATEGORIES = ["All","Bhajan","Chorus","Worship","Praise","Christmas","Kids"];
+const SHARP = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const FLAT = ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+const SEMI = {"C":0,"C#":1,"Db":1,"D":2,"D#":3,"Eb":3,"E":4,"F":5,"F#":6,"Gb":6,"G":7,"G#":8,"Ab":8,"A":9,"A#":10,"Bb":10,"B":11};
+const state = {q:"",cat:"All",letter:null,favsOnly:false,view:"home",songId:null,script:"both",transpose:0,fontSize:17,hideChords:false,autoScroll:false,scrollTimer:null};
+function loadFavs(){try{return JSON.parse(localStorage.getItem("merobhajan-favs")||"[]")}catch(e){return[]}}
+let favs = new Set(loadFavs());
+function saveFavs(){localStorage.setItem("merobhajan-favs",JSON.stringify([...favs]))}
+function firstLetter(s){return (s.titleNepali||"").charAt(0)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function transposeChord(ch,n){
+  if(!n) return ch;
+  const m = ch.match(/^([A-G])(#|b)?(.*)$/);
+  if(!m) return ch;
+  const root = m[1]+(m[2]||""), suffix = m[3]||"";
+  const idx = SEMI[root]; if(idx===undefined) return ch;
+  const ni = (idx+n+12*10)%12;
+  const useFlat = root.indexOf("b")>=0;
+  return (useFlat?FLAT[ni]:SHARP[ni])+suffix;
+}
+function renderChordLine(text){
+  const parts = text.split(/(\[[^\]]+\])/g);
+  let html = "";
+  let pending = null;
+  function flush(segText){
+    html += '<span class="seg"><span class="ch">'+esc(pending||"")+'</span><span class="tx">'+esc(segText)+'</span></span>';
+    pending = null;
+  }
+  parts.forEach(function(p){
+    if(!p) return;
+    if(p[0]==="["){
+      const raw = p.slice(1,-1);
+      pending = state.hideChords ? "" : transposeChord(raw, state.transpose);
+    } else {
+      flush(p);
+    }
+  });
+  if(pending!==null){ html += '<span class="seg"><span class="ch">'+esc(pending)+'</span><span class="tx"></span></span>'; }
+  return html;
+}
+function stripChords(text){return text.replace(/\[[^\]]+\]/g,"")}
+function songText(s){
+  let t = s.titleRoman+" "+s.titleNepali+" "+(s.writer||"")+" "+(s.songNumber||"");
+  s.sections.forEach(function(sec){sec.lines.forEach(function(l){t+=" "+stripChords(l.chordPro)+" "+l.nepali})});
+  return t.toLowerCase();
+}
+function filteredSongs(){
+  const q = state.q.trim().toLowerCase();
+  return SONGS.filter(function(s){
+    if(state.cat!=="All" && s.category!==state.cat) return false;
+    if(state.letter && firstLetter(s)!==state.letter) return false;
+    if(state.favsOnly && !favs.has(s.id)) return false;
+    if(q && songText(s).indexOf(q)<0) return false;
+    return true;
+  });
+}
+function renderCats(){
+  const el = document.getElementById("cats");
+  el.innerHTML = CATEGORIES.map(function(c){
+    return '<button class="chip'+(state.cat===c?" active":"")+'" data-cat="'+c+'">'+c+'</button>';
+  }).join("") + '<button class="chip'+(state.favsOnly?" active":"")+'" data-fav="1">&#9733; Favorites</button>';
+  el.querySelectorAll("[data-cat]").forEach(function(b){b.onclick=function(){state.cat=b.dataset.cat;state.favsOnly=false;renderAll()}});
+  el.querySelector("[data-fav]").onclick=function(){state.favsOnly=!state.favsOnly;renderAll()};
+}
+function renderAlpha(){
+  const present = new Set(SONGS.map(firstLetter));
+  const el = document.getElementById("alpha");
+  el.innerHTML = VARNAMALA.map(function(L){
+    const dis = present.has(L)?"":" disabled";
+    const act = state.letter===L?" active":"";
+    return '<button class="'+act.trim()+'"'+dis+' data-L="'+L+'">'+L+'</button>';
+  }).join("") + (state.letter?'<button class="clear" id="clearLetter">Clear &times;</button>':"");
+  el.querySelectorAll("[data-L]").forEach(function(b){b.onclick=function(){state.letter = state.letter===b.dataset.L?null:b.dataset.L;renderAll()}});
+  const c = document.getElementById("clearLetter");
+  if(c) c.onclick=function(){state.letter=null;renderAll()};
+}
+function renderList(){
+  const el = document.getElementById("list");
+  const songs = filteredSongs();
+  if(!songs.length){el.innerHTML='<div class="empty">No songs match. Try a different search, category, or letter.</div>';return}
+  const groups = {};
+  songs.forEach(function(s){const L=firstLetter(s);(groups[L]=groups[L]||[]).push(s)});
+  const order = VARNAMALA.filter(function(L){return groups[L]});
+  el.innerHTML = order.map(function(L){
+    return '<div class="group-h">'+L+'</div>' + groups[L].map(function(s){
+      const star = favs.has(s.id)?" on":"";
+      const meta = [s.songNumber,s.category,"Key "+transposeChord(s.originalKey,0),s.writer].filter(Boolean).map(esc).join("</span><span>");
+      return '<div class="song" data-id="'+s.id+'"><div><div class="t">'+esc(s.titleRoman)+'</div><div class="n">'+esc(s.titleNepali)+'</div><div class="m"><span>'+meta+'</span></div></div><button class="star'+star+'" data-star="'+s.id+'" aria-label="Favorite">&#9733;</button></div>';
+    }).join("");
+  }).join("");
+  el.querySelectorAll(".song").forEach(function(row){
+    row.onclick=function(e){
+      if(e.target.dataset.star) return;
+      openSong(+row.dataset.id);
+    };
+  });
+  el.querySelectorAll("[data-star]").forEach(function(b){
+    b.onclick=function(e){
+      e.stopPropagation();
+      const id=+b.dataset.star;
+      if(favs.has(id)) favs.delete(id); else favs.add(id);
+      saveFavs(); renderAll();
+    };
+  });
+}
+function currentKey(song){
+  return transposeChord(song.originalKey, state.transpose);
+}
+function renderControls(song){
+  const el = document.getElementById("controls");
+  const modes = [["english","English"],["nepali","Nepali"],["both","Both"]];
+  el.innerHTML =
+    '<span class="lbl">Key</span>'+
+    '<button class="btn" id="tpDown">&minus;</button>'+
+    '<button class="btn" id="tpKey">'+esc(currentKey(song))+'</button>'+
+    '<button class="btn" id="tpUp">+</button>'+
+    '<button class="btn" id="tpReset">Reset</button>'+
+    '<span class="lbl">Text</span>'+
+    '<button class="btn" id="fsDown">A&minus;</button>'+
+    '<button class="btn" id="fsUp">A+</button>'+
+    '<span class="lbl">Words</span>'+
+    modes.map(function(m){return '<button class="btn'+(state.script===m[0]?" active":"")+'" data-mode="'+m[0]+'">'+m[1]+'</button>'}).join("")+
+    '<button class="btn'+(state.hideChords?" active":"")+'" id="hideCh">Hide chords</button>'+
+    '<button class="btn'+(state.autoScroll?" active":"")+'" id="autoBtn">Auto scroll</button>'+
+    '<button class="btn" id="favBtn">'+(favs.has(song.id)?"&#9733; Favorited":"&#9734; Favorite")+'</button>';
+  document.getElementById("tpDown").onclick=function(){state.transpose--;renderDetail(song)};
+  document.getElementById("tpUp").onclick=function(){state.transpose++;renderDetail(song)};
+  document.getElementById("tpKey").onclick=function(){state.transpose=0;renderDetail(song)};
+  document.getElementById("tpReset").onclick=function(){state.transpose=0;renderDetail(song)};
+  document.getElementById("fsDown").onclick=function(){state.fontSize=Math.max(13,state.fontSize-1);renderDetail(song)};
+  document.getElementById("fsUp").onclick=function(){state.fontSize=Math.min(26,state.fontSize+1);renderDetail(song)};
+  el.querySelectorAll("[data-mode]").forEach(function(b){b.onclick=function(){state.script=b.dataset.mode;renderDetail(song)}});
+  document.getElementById("hideCh").onclick=function(){state.hideChords=!state.hideChords;renderDetail(song)};
+  document.getElementById("autoBtn").onclick=function(){toggleAutoScroll()};
+  document.getElementById("favBtn").onclick=function(){
+    if(favs.has(song.id)) favs.delete(song.id); else favs.add(song.id);
+    saveFavs(); renderDetail(song);
+  };
+}
+function toggleAutoScroll(){
+  state.autoScroll=!state.autoScroll;
+  if(state.autoScroll){
+    state.scrollTimer=setInterval(function(){window.scrollBy(0,1)},60);
+  } else if(state.scrollTimer){clearInterval(state.scrollTimer);state.scrollTimer=null}
+  const song=SONGS.find(function(s){return s.id===state.songId});
+  if(song) renderDetail(song);
+}
+function renderDetail(song){
+  const isExcerpt = song.writer && song.writer.indexOf("excerpt")>=0;
+  document.getElementById("detailHead").innerHTML =
+    '<h2>'+esc(song.titleRoman)+'</h2>'+
+    '<div class="nep">'+esc(song.titleNepali)+'</div>'+
+    '<div class="meta"><span>'+esc(song.songNumber||"")+'</span><span>'+esc(song.category)+'</span><span>Key '+esc(currentKey(song))+(state.transpose?" (was "+esc(song.originalKey)+")":"")+'</span><span>'+esc(song.writer||"")+'</span>'+(song.scripture?'<span>'+esc(song.scripture)+'</span>':"")+'</div>'+
+    (isExcerpt?'<span class="starter-tag">Starter &middot; chorus excerpt</span>':"");
+  renderControls(song);
+  const body=document.getElementById("detailBody");
+  body.style.fontSize=state.fontSize+"px";
+  body.innerHTML = song.sections.map(function(sec){
+    const lines = sec.lines.map(function(l){
+      let h='<div class="lyric-line">';
+      if(state.script!=="nepali"){ h+=renderChordLine(l.chordPro); }
+      h+='</div>';
+      if(state.script!=="english"){ h+='<div class="nep-line">'+esc(l.nepali)+'</div>'; }
+      return h;
+    }).join("");
+    return '<div class="section"><h3>'+esc(sec.label)+'</h3>'+lines+'</div>';
+  }).join("") + '<p style="color:var(--muted);font-size:13px">English means Nepali words written in English letters. Nepali shows Devanagari script.</p>';
+}
+function openSong(id){
+  state.songId=id; state.view="detail"; state.transpose=0;
+  if(state.scrollTimer){clearInterval(state.scrollTimer);state.scrollTimer=null;state.autoScroll=false}
+  const song=SONGS.find(function(s){return s.id===id});
+  document.getElementById("homeView").classList.add("hidden");
+  document.getElementById("detailView").classList.remove("hidden");
+  renderDetail(song);
+  window.scrollTo(0,0);
+}
+function goHome(){
+  state.view="home";
+  if(state.scrollTimer){clearInterval(state.scrollTimer);state.scrollTimer=null;state.autoScroll=false}
+  document.getElementById("detailView").classList.add("hidden");
+  document.getElementById("homeView").classList.remove("hidden");
+  renderAll();
+}
+function renderAll(){
+  renderCats(); renderAlpha(); renderList();
+}
+document.getElementById("search").addEventListener("input",function(e){state.q=e.target.value;renderList()});
+document.getElementById("backBtn").onclick=goHome;
+renderAll();
+</script>
+</body>
+</html>
