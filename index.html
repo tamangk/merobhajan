@@ -22,6 +22,10 @@ h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}
 .subtitle{margin:2px 0 0;color:var(--muted);font-size:15px}
 .notice{margin:14px 0 0;background:var(--accent-soft);border:1px solid #99f6e4;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#134e4a}
 .notice b{font-weight:700}
+.add-song-row{margin:18px 0 4px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.add-song-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;border-radius:12px;padding:11px 16px;font-size:15px}
+.add-song-btn:hover{background:var(--accent-dark)}
+.add-song-note{color:var(--muted);font-size:13.5px}
 .search{width:100%;margin:18px 0 12px;padding:12px 14px;font-size:16px;border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--text);outline:none}
 .search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
@@ -76,6 +80,10 @@ footer.site p{margin:4px 0}
 </header>
 <main class="wrap">
   <div id="homeView">
+    <div class="add-song-row">
+      <a class="add-song-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd72Jm7YHt5k0yRHe7of6aAqlMp6HNW-_c0goGl4Up0I80XOA/viewform" target="_blank" rel="noopener">+ Add a song</a>
+      <span class="add-song-note">Songs you add go to the admin for review before they go live.</span>
+    </div>
     <input id="search" class="search" type="search" placeholder="Search songs, lyrics, writers..." autocomplete="off">
     <div class="chips" id="cats"></div>
     <div class="alpha-label">Nepali alphabet &middot; नेपाली वर्णमाला</div>
